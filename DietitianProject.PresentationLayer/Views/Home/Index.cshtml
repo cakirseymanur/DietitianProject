@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_GuestLayout.cshtml";
+}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="hero d-flex align-items-center section-bg">
+    <div class="container">
+        <div class="row justify-content-between gy-5">
+            <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
+                <h2 data-aos="fade-up">KİLO HEDEFİN Mİ VAR?<br>HAYDİ BERABER ULAŞALIM!</h2>
+                <p data-aos="fade-up" data-aos-delay="100">Diyet programları ve beslenme önerileri sunuyoruz.</p>
+                <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+                    <a href="/Register/SignUp" class="btn-book-a-table">Üye Ol!</a>
+                    @*<a href="#" class="glightbox btn-watch-video d-flex align-items-center"><span>Zaten Üyeyim</span></a>*@
+                    <a href="/Login/Index" class="btn-watch-video d-flex align-items-center"><span>Zaten Üyeyim</span></a>
+                </div>
+            </div>
+            <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
+                <img src="~/Templates/Yummy/assets/img/healthwoman.png" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300">
+            </div>
+        </div>
+    </div>
+</section><!-- End Hero Section -->

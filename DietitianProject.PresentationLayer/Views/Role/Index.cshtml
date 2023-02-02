@@ -1,0 +1,115 @@
+﻿@model CreateRoleDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<main class="content">
+    <div class="container-fluid p-0">
+
+        <div class="row">
+            <div class="mb-3">
+                <h1 class="h2 d-inline align-middle">Yeni Rol Oluşturma</h1>
+            </div>
+            <div class="col-12 col-lg-12 col-xxl-12 d-flex">
+                <div class="card flex-fill">
+                    <form method="post" action="/Role/AddRole">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Rol Ekleme</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-3">
+                                    <input type="text" asp-for="Name" class="form-control" placeholder="Role adı">
+                                </div>
+                                <div class="col-3">
+                                    <button type="submit" class="btn btn-success">Ekle</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-12 col-xxl-12 d-flex">
+                <div class="card flex-fill">
+                    <div class="card-header">
+
+                        <h5 class="card-title mb-0">Rol Listesi</h5>
+                    </div>
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>Roller</th>
+                                <th>Güncelle</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.Roles)
+                            {
+                                <tr ondblclick="ondblClick(@item.Id)">
+                                    <td><input type="text" disabled id="@item.Id" value="@item.Name" /></td>
+                                    <td><button href="#" onclick="roleOnclick(@item.Id)" class="btn btn-warning">Güncelle</button></td>
+                                    <td><button href="/Role/DeleteRole/@item.Id" class="btn btn-danger">Sil</button></td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+
+<script>
+    function ondblClick(item) {
+        debugger;
+        document.getElementById(item).disabled = false;
+    }
+    function roleOnclick(itemId) {
+        debugger;
+        if (document.getElementById(itemId).disabled == true) {
+            document.getElementById(itemId).disabled = false;
+        }
+        else {
+            var roleName = document.getElementById(itemId);
+            let roleValues = {
+                Id: itemId,
+                Name: roleName.value
+            };
+            $.ajax({
+                dataType: "json",
+                type: "post",
+                data: roleValues,
+                url: "/Role/UpdateRole/",
+                success: function (funk) {
+                    let result = jQuery.parseJSON(funk);
+                    if (result) {
+                        document.getElementById(itemId).disabled = true;
+                    }
+                    else {
+                        fail();
+                    }
+
+                }
+            });
+        }
+
+    }
+    function fail() {
+        swal({
+            title: "Hata",
+            text: "İşlem başarısız",
+            icon: "danger",
+            confirmButtonText: 'Tamam'
+        });
+    }
+</script>

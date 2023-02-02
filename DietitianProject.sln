@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33130.400
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DietitianProject.PresentationLayer", "DietitianProject.PresentationLayer\DietitianProject.PresentationLayer.csproj", "{7CC6FD99-29D3-4940-A7CC-52E5493CB39E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DietitianProject.EntityLayer", "DietitianProject.EntityLayer\DietitianProject.EntityLayer.csproj", "{61B1F3DD-1249-45C5-9BE2-54B34E11C85B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DietitianProject.DtoLayer", "DietitianProject.DtoLayer\DietitianProject.DtoLayer.csproj", "{464B2676-1FE4-4EFF-96CD-6F711366246A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DietitianProject.BusinessLayer", "DietitianProject.BusinessLayer\DietitianProject.BusinessLayer.csproj", "{50C90E54-C7B3-46CE-8358-2C2AFC0749DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DietitianProject.DataAccessLayer", "DietitianProject.DataAccessLayer\DietitianProject.DataAccessLayer.csproj", "{42D2982A-4E6A-40CF-8B2B-67BCCC3ED87B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DietitianProject.ApiLayer", "DietitianProject.ApiLayer\DietitianProject.ApiLayer.csproj", "{2A716F80-CE08-4A0A-9586-E4D4F66DF259}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CC6FD99-29D3-4940-A7CC-52E5493CB39E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CC6FD99-29D3-4940-A7CC-52E5493CB39E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CC6FD99-29D3-4940-A7CC-52E5493CB39E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CC6FD99-29D3-4940-A7CC-52E5493CB39E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61B1F3DD-1249-45C5-9BE2-54B34E11C85B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61B1F3DD-1249-45C5-9BE2-54B34E11C85B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61B1F3DD-1249-45C5-9BE2-54B34E11C85B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61B1F3DD-1249-45C5-9BE2-54B34E11C85B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{464B2676-1FE4-4EFF-96CD-6F711366246A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{464B2676-1FE4-4EFF-96CD-6F711366246A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{464B2676-1FE4-4EFF-96CD-6F711366246A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{464B2676-1FE4-4EFF-96CD-6F711366246A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50C90E54-C7B3-46CE-8358-2C2AFC0749DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50C90E54-C7B3-46CE-8358-2C2AFC0749DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50C90E54-C7B3-46CE-8358-2C2AFC0749DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50C90E54-C7B3-46CE-8358-2C2AFC0749DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42D2982A-4E6A-40CF-8B2B-67BCCC3ED87B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42D2982A-4E6A-40CF-8B2B-67BCCC3ED87B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42D2982A-4E6A-40CF-8B2B-67BCCC3ED87B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42D2982A-4E6A-40CF-8B2B-67BCCC3ED87B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A716F80-CE08-4A0A-9586-E4D4F66DF259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A716F80-CE08-4A0A-9586-E4D4F66DF259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A716F80-CE08-4A0A-9586-E4D4F66DF259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A716F80-CE08-4A0A-9586-E4D4F66DF259}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8F3F83CD-2F97-4B94-836F-4A09B6B6CF53}
+	EndGlobalSection
+EndGlobal
