@@ -1,0 +1,72 @@
+﻿@model List<DietPlan>
+<section id="events" class="events">
+    <div class="container-fluid" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>DİYET PLANLARI</h2>
+            <p>TÜM <span>DİYET PLANLARI</span></p>
+        </div>
+
+        <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+
+                @foreach (var item in Model)
+                {
+                    <div class="swiper-slide event-item d-flex flex-column justify-content-end" @*style="background-image: url(~/DietPlanImage/@item.ImageUrl)"*@>
+                        <img src="~/Image/DietPlanImage/@item.ImageUrl" alt="Alternate Text" />
+                        <h3>@item.Name</h3>
+                        <div class="price align-self-start">@item.Price TL <a href="#" class="btn-book-a-table">Satın Al</a></div>
+                        <p class="description">
+                            @item.Description
+                        </p>
+                    </div>
+                }
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+</section> End Events Section 
+<!--<section id="menu" class="menu">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Our Menu</h2>
+            <p>Check Our <span>Yummy Menu</span></p>
+        </div>
+
+
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+
+            <div class="tab-pane fade active show" id="menu-starters">
+
+           
+                <div class="tab-header text-center">
+                    <p>Menu</p>
+                    <h3>Starters</h3>
+                </div>
+
+                <div class="row gy-5">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 menu-item">
+                            <a href="~/Image/DietPlanImage/@item.ImageUrl" class="glightbox"><img src="~/Image/DietPlanImage/@item.ImageUrl" class="menu-img img-fluid" alt=""></a>
+                            <h4>@item.Name</h4>
+                            <p class="ingredients">
+                                @item.Description
+                            </p>
+                            <p class="price">
+                               @item.Price
+                            </p>
+                        </div>
+                    }
+                   
+                </div>
+            </div>--><!-- End Starter Menu Content -->
+
+            
+
+        <!--</div>
+
+    </div>
+</section>-->

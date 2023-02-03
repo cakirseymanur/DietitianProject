@@ -2,7 +2,6 @@
 using DietitianProject.DataAccessLayer.Concrete;
 using DietitianProject.DataAccessLayer.Repository;
 using DietitianProject.EntityLayer.Concrete;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,42 +10,32 @@ using System.Threading.Tasks;
 
 namespace DietitianProject.DataAccessLayer.EntityFramework
 {
-    public class EFTestimonialDal : GenericRepository<Testimonial>, ITestimonialDal
+    public class EFDietPlanDal : GenericRepository<DietPlan>, IDietPlanDal
     {
-        public void ChangeTestimonialStatusToFalse(int id)
+        public void ChangeDietPlanStatusToFalse(int id)
         {
             using (var context = new Context())
             {
-                var values = context.Testimonials.Find(id);
+                var values = context.DietPlans.Find(id);
                 values.Status = false;
                 context.SaveChanges();
             }
         }
 
-        public void ChangeTestimonialStatusToTrue(int id)
+        public void ChangeDietPlanStatusToTrue(int id)
         {
             using (var context = new Context())
             {
-                var values = context.Testimonials.Find(id);
+                var values = context.DietPlans.Find(id);
                 values.Status = true;
                 context.SaveChanges();
             }
         }
-
-        public List<Testimonial> GetByStatus(bool status)
+        public List<DietPlan> GetByStatus(bool status)
         {
             using (var context = new Context())
             {
-                var values= context.Testimonials.Include(x => x.AppUser).ToList();
-                return values.Where(x=>x.Status==status).ToList();
-            }
-        }
-
-        public List<Testimonial> GetListWithUser()
-        {
-            using (var context = new Context())
-            {
-                var values = context.Testimonials.Include(x => x.AppUser).ToList();
+                var values= context.DietPlans.Where(x=>x.Status==status).ToList();
                 return values;
             }
         }

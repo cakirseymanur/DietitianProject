@@ -53,7 +53,7 @@
                                 <tr ondblclick="ondblClick(@item.Id)">
                                     <td><input type="text" disabled id="@item.Id" value="@item.Name" /></td>
                                     <td><button href="#" onclick="roleOnclick(@item.Id)" class="btn btn-warning">Güncelle</button></td>
-                                    <td><button href="/Role/DeleteRole/@item.Id" class="btn btn-danger">Sil</button></td>
+                                    <td><a href="/Role/DeleteRole/@item.Id" class="btn btn-danger">Sil</a></td>
                                 </tr>
                             }
 

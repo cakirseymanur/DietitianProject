@@ -1,0 +1,51 @@
+﻿@model List<Testimonial>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<main class="content">
+    <div class="container-fluid p-0">
+
+        <div class="row">
+            <div class="col-12 col-lg-12 col-xxl-12 d-flex">
+                <div class="card flex-fill">
+                    <div class="card-header">
+
+                        <h5 class="card-title mb-0">Kullanıcı Yorumları</h5>
+                    </div>
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>Ad Soyad</th>
+                                <th>Kullanıcı Adı</th>
+                                <th>Yorum</th>
+                                <th>Durumu</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                              <tr>
+                                  <td>@item.AppUser.Name @item.AppUser.Surname</td>
+                                  <td>@item.AppUser.UserName</td>
+                                  <td>@item.Description</td>
+                                  @if (item.Status == true)
+                                  {
+                                      <td><a href="/Testimonials/ChangeTestimonialStatusToFalse/@item.Id" class="btn btn-warning">Yayından Kaldır</a></td>
+                                  }
+                                  else
+                                  {
+                                      <td><a href="/Testimonials/ChangeTestimonialStatusToTrue/@item.Id" class="btn btn-success">Yayınla</a></td>
+                                  }
+                                  <td><a href="/Testimonials/Delete/@item.Id" class="btn btn-danger">Sil</a></td>
+                              </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>

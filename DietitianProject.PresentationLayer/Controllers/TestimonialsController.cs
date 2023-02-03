@@ -1,11 +1,8 @@
-﻿using AutoMapper;
-using DietitianProject.BusinessLayer.Abstract;
+﻿using DietitianProject.BusinessLayer.Abstract;
 using DietitianProject.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System; 
 using System.Threading.Tasks;
 
 namespace DietitianProject.PresentationLayer.Controllers
@@ -14,18 +11,16 @@ namespace DietitianProject.PresentationLayer.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly ITestimonialService _testimonialService;
-        private readonly IMapper _mapper;
 
-        public TestimonialsController(UserManager<AppUser> userManager, IMapper mapper, ITestimonialService testimonialService)
+        public TestimonialsController(UserManager<AppUser> userManager , ITestimonialService testimonialService)
         {
-            _userManager = userManager;
-            _mapper = mapper;
+            _userManager = userManager; 
             _testimonialService = testimonialService;
         }
 
         public IActionResult Index()
         {
-            var testimonials = _testimonialService.TGetList();
+            var testimonials = _testimonialService.TGetListWithUser();
             return View(testimonials);
         }
 
@@ -46,6 +41,26 @@ namespace DietitianProject.PresentationLayer.Controllers
             return RedirectToAction("Index","Home", new { area = "UserArea" });
         }
 
+        public IActionResult ChangeTestimonialStatusToFalse(int id)
+        {
+            _testimonialService.TChangeTestimonialStatusToFalse(id);
+            return RedirectToAction("Index");
+        }
+         public IActionResult ChangeTestimonialStatusToTrue(int id)
+         { 
+            _testimonialService.TChangeTestimonialStatusToTrue(id); 
+            return RedirectToAction("Index");
+         }
 
+        public IActionResult Delete(int id)
+        {
+            if (id!=0)
+            {
+                var values = _testimonialService.TGetById(id);
+                _testimonialService.TDelete(values);
+                return Json(true);
+            }
+            return Json(false);
+        }
     }
 }

@@ -10,5 +10,8 @@ namespace DietitianProject.DataAccessLayer.Abstract
     public interface ITestimonialDal : IGenericDal<Testimonial>
     {
         List<Testimonial> GetByStatus(bool status);
+        List<Testimonial> GetListWithUser();
+        void ChangeTestimonialStatusToTrue(int id);
+        void ChangeTestimonialStatusToFalse(int id);
     }
 }

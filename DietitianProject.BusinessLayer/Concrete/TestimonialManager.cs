@@ -18,6 +18,16 @@ namespace DietitianProject.BusinessLayer.Concrete
             _testimonialDal = testimonialDal;
         }
 
+        public void TChangeTestimonialStatusToFalse(int id)
+        {
+            _testimonialDal.ChangeTestimonialStatusToFalse(id);
+        }
+
+        public void TChangeTestimonialStatusToTrue(int id)
+        {
+            _testimonialDal.ChangeTestimonialStatusToTrue(id);
+        }
+
         public void TDelete(Testimonial t)
         {
             _testimonialDal.Delete(t);
@@ -36,6 +46,11 @@ namespace DietitianProject.BusinessLayer.Concrete
         public List<Testimonial> TGetList()
         {
             return _testimonialDal.GetList();
+        }
+
+        public List<Testimonial> TGetListWithUser()
+        {
+            return _testimonialDal.GetListWithUser();
         }
 
         public void TInsert(Testimonial t)

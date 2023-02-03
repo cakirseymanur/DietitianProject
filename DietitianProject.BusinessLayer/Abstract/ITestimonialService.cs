@@ -10,5 +10,8 @@ namespace DietitianProject.BusinessLayer.Abstract
     public interface ITestimonialService : IGenericService<Testimonial>
     {
         List<Testimonial> TGetByStatus(bool status);
+        List<Testimonial> TGetListWithUser();
+        void TChangeTestimonialStatusToTrue(int id);
+        void TChangeTestimonialStatusToFalse(int id);
     }
 }

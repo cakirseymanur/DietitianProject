@@ -1,0 +1,92 @@
+﻿@model UpdateDietPlanDto
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+ 
+<main class="content">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h2 class="card-title mb-0">Yeni Diyet Planı</h2>
+                    </div>
+                    <hr class="my-0" />
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <br />
+                            <div class="col-12">
+                                <div class="row">
+                                    @Html.HiddenFor(x=>x.Id)
+                                    <div class="col-1">
+                                        <label>Adı:</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" asp-for="Name" class="form-control" placeholder="Diyet Planı Adı ...">
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-2">
+                                    </div>
+                                    <div class="col-1">
+                                        <label>Fiyat:</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" asp-for="Price" class="form-control" placeholder="Fiyat...">
+                                        <span asp-validation-for="Price" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <div class="row">
+                                    <div class="col-1">
+                                        <label>Açıklama:</label>
+                                    </div>
+                                    <div class="col-5">
+                                        <textarea class="form-control" rows="5" asp-for="Description" placeholder="Açıklama..."></textarea>
+                                        <span asp-validation-for="Description" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-1">
+                                        <label>Pdf İçeriğini değiştir:</label>
+                                    </div>
+                                    <div class="col-5">
+                                        <textarea class="form-control" rows="10" asp-for="Pdf" placeholder="Diyet içeriğini giriniz..."></textarea>
+                                        <span asp-validation-for="Pdf" class="text-danger"></span>
+                                        <a href="/DietPlan/InstallPdf/@Model.Id">İçeriği Gör</a>
+                                    </div>
+
+                                    <div class="col-1">
+                                        <label>Fotoğraf:</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="file" asp-for="Image" class="form-control" />
+                                        <span asp-validation-for="Image" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row justify-content-end">
+                                    <div class="col-3">
+
+                                        <button type="submit" class="btn btn-warning">Güncelle</button>
+
+                                    </div>
+                                </div>
+                                <br />
+                                <hr class="my-0" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+
+
+
