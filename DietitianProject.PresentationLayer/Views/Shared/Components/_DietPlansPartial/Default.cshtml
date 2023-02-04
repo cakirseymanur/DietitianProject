@@ -15,7 +15,7 @@
                     <div class="swiper-slide event-item d-flex flex-column justify-content-end" @*style="background-image: url(~/DietPlanImage/@item.ImageUrl)"*@>
                         <img src="~/Image/DietPlanImage/@item.ImageUrl" alt="Alternate Text" />
                         <h3>@item.Name</h3>
-                        <div class="price align-self-start">@item.Price TL <a href="#" class="btn-book-a-table">Satın Al</a></div>
+                        <div class="price align-self-start">@item.Price TL <a href="/UserArea/Sales/ComplateSale/@item.Id" class="btn-book-a-table">Satın Al</a></div>
                         <p class="description">
                             @item.Description
                         </p>

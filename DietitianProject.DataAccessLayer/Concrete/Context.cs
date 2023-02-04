@@ -19,5 +19,6 @@ namespace DietitianProject.DataAccessLayer.Concrete
         public DbSet<DietitianInfo> DietitianInfos { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<DietPlan> DietPlans { get; set; }
+        public DbSet<Sale> Sales { get; set; }
     }
 }

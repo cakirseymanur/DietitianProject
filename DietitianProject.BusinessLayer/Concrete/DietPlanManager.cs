@@ -1,5 +1,6 @@
 ﻿using DietitianProject.BusinessLayer.Abstract;
 using DietitianProject.DataAccessLayer.Abstract;
+using DietitianProject.DataAccessLayer.UnitOfWork;
 using DietitianProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,26 +12,31 @@ namespace DietitianProject.BusinessLayer.Concrete
 {
     public class DietPlanManager : IDietPlanService
     {
-        IDietPlanDal _dietPlanDal;
+        private readonly IDietPlanDal _dietPlanDal;
+        private readonly IUowDal _uowDal;
 
-        public DietPlanManager(IDietPlanDal dietPlanDal)
+        public DietPlanManager(IDietPlanDal dietPlanDal, IUowDal uowDal)
         {
             _dietPlanDal = dietPlanDal;
+            _uowDal = uowDal;
         }
 
         public void TChangeDietPlanStatusToFalse(int id)
         {
             _dietPlanDal.ChangeDietPlanStatusToFalse(id);
+            _uowDal.Save();
         }
 
         public void TChangeDietPlanStatusToTrue(int id)
         {
             _dietPlanDal.ChangeDietPlanStatusToTrue(id);
+            _uowDal.Save();
         }
 
         public void TDelete(DietPlan t)
         {
             _dietPlanDal.Delete(t);
+            _uowDal.Save();
         }
 
         public DietPlan TGetById(int id)
@@ -51,11 +57,13 @@ namespace DietitianProject.BusinessLayer.Concrete
         public void TInsert(DietPlan t)
         {
             _dietPlanDal.Insert(t);
+            _uowDal.Save();
         }
 
         public void TUpdate(DietPlan t)
         {
             _dietPlanDal.Update(t);
+            _uowDal.Save();
         }
     }
 }

@@ -1,0 +1,33 @@
+﻿@model DietPlan
+@{
+    ViewData["Title"] = "ComplateSale";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<section class="hero d-flex align-items-center section">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Satın Alma</h2>
+            <p><span>DİYET PLANINI</span>SATIN ALIN</p>
+        </div>
+
+        <div class="row gy-4">
+            <div class="col-lg-5 position-relative about-img" @*style="background-image: url(../Templates/Yummy/assets/img/healthman.png);"*@ data-aos="fade-up" data-aos-delay="150">
+                <img src="~/Image/DietPlanImage/@Model.ImageUrl" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-7 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
+                <div class="content ps-0 ps-lg-5">
+                    <p class="fst-italic">
+                       @Model.Description
+                    </p>
+                    <ul>
+                        <li><i class="bi bi-check2-all"></i> Programlarımızı uzman diyetisyenlerimiz hazırlıyor.</li>
+                    </ul>
+                    <div class="price align-self-start">@Model.Price TL <a href="/UserArea/Sales/ComplateSale/@Model.Id" class="btn-book-a-table">Satın Al</a></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section><!-- End Hero Section -->
