@@ -15,7 +15,6 @@ namespace DietitianProject.DataAccessLayer.Concrete
         {
             optionsBuilder.UseSqlServer("Server=.;Database=DbDietitian;integrated security=True");
         }
-
         public DbSet<DietitianInfo> DietitianInfos { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<DietPlan> DietPlans { get; set; }

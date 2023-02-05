@@ -11,10 +11,8 @@ namespace DietitianProject.EntityLayer.Concrete
         public int Id { get; set; }
 
         public int AppUserId { get; set; }
-        public AppUser AppUser { get; set; }
 
         public int DietPlanId { get; set; }
-        public DietPlan DietPlan { get; set; }
 
         public decimal Price { get; set; }
         public DateTime SalesDate { get; set; }

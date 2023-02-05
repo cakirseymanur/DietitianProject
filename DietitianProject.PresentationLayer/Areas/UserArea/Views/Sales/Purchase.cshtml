@@ -1,0 +1,57 @@
+﻿@model DietPlanViewModel
+@{
+    ViewData["Title"] = "Purchase";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<section class="events">
+    <div class="wrapper">
+        <div class="checkout container">
+            <form id="payment-form" method="post">
+                @Html.HiddenFor(n => n.Id)
+                @Html.HiddenFor(n=>n.Price)
+                @Html.HiddenFor(n=>n.Description)
+                @Html.HiddenFor(n=>n.Name)
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" asp-for="Name">@Model.Name</h5>
+                        <p class="card-text"  asp-for="Description">@Model.Description</p>
+                        <p class="card-text"  name="Price"><small class="text-muted">Tutar: @Model.Price</small></p>
+                    </div>
+                    <img style="width: 50%" name="ImageUrl" class="card-img-bottom" src="/Image/DietPlanImage/@Model.ImageUrl" alt="Card image cap">
+                </div>
+                <section>
+                    <div class="bt-drop-in-wrapper">
+                        <div id="bt-dropin"></div>
+                    </div>
+                </section>
+                @Html.HiddenFor(n => n.Nonce, new { @id = "nonce" })
+                <hr />
+                <button class="btn btn-success" type="submit"><span>Ödeme Yap - @Model.Price TL</span></button>
+            </form>
+        </div>
+    </div>
+</section> 
+<script src="https://js.braintreegateway.com/web/dropin/1.22.0/js/dropin.min.js"></script>
+<script>
+    var client_token = "@ViewBag.ClientToken";
+    var form = document.querySelector('#payment-form');
+
+    braintree.dropin.create({
+        authorization: client_token,
+        container: '#bt-dropin'
+    }, function (createErr, instance) {
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            instance.requestPaymentMethod(function (err, payload) {
+                if (err) {
+                    return;
+                }
+
+                document.querySelector('#nonce').value = payload.nonce;
+                form.submit();
+            });
+        });
+    });
+</script>

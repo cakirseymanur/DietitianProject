@@ -1,4 +1,4 @@
-﻿using DietitianProject.EntityLayer.Concrete;
+﻿using Braintree;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace DietitianProject.BusinessLayer.Abstract
 {
-    public interface ISalesService :IGenericService<Sale>
+    public interface IBraintreeService
     {
-        List<DietPlan> TGetMyDietPlans(int id);
+        IBraintreeGateway CreateGateway();
+        IBraintreeGateway GetGateway();
     }
 }

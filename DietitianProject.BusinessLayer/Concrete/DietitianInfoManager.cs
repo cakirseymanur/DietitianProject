@@ -24,7 +24,7 @@ namespace DietitianProject.BusinessLayer.Concrete
         public void TDelete(DietitianInfo t)
         {
             _dietitianInfoDal.Delete(t);
-            _uowDal.Save();
+            //_uowDal.Save();
         }
 
         public DietitianInfo TGetById(int id)
@@ -40,13 +40,13 @@ namespace DietitianProject.BusinessLayer.Concrete
         public void TInsert(DietitianInfo t)
         {
             _dietitianInfoDal.Insert(t);
-            _uowDal.Save();
+            //_uowDal.Save();
         }
 
         public void TUpdate(DietitianInfo t)
         {
             _dietitianInfoDal.Update(t);
-            _uowDal.Save();
+            //_uowDal.Save();
         }
     }
 }

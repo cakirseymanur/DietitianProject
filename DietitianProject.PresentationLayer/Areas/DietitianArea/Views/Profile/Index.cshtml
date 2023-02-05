@@ -1,0 +1,97 @@
+﻿@model ProfileDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DietitianLayout.cshtml";
+}
+
+<section class="hero d-flex align-items-center section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-3" style="border: none">
+                    <div class="card-body text-center">
+                        <img src="~/Image/UserImage/@ViewBag.Image" alt="@Model.Name @Model.Surname" class="img-fluid rounded-circle mb-2" width="128" height="128" />
+                        <h5 class="card-title mb-0">@Model.Name @Model.Surname</h5>
+                        <div class="text-muted mb-2">@ViewBag.Role</div>
+
+                    </div>
+                    <hr class="my-0" />
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <h6 class="h6 card-title">Bilgilerim</h6>
+                            <br />
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <label>Ad:</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" asp-for="Name" class="form-control" placeholder="Adınız...">
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-2">
+                                    </div>
+                                    <div class="col-1">
+                                        <label>Soyad:</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" asp-for="Surname" class="form-control" placeholder="Soyadınız...">
+                                        <span asp-validation-for="Surname" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <div class="row">
+                                    <div class="col-1">
+                                        <label>Kullanıcı Adı:</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" asp-for="UserName" class="form-control" placeholder="Kullanıcı Adınız...">
+                                        <span asp-validation-for="UserName" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-2">
+                                    </div>
+                                    <div class="col-1">
+                                        <label>Email:</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="email" asp-for="Email" class="form-control" placeholder="Email Adresiniz...">
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-1">
+                                        <label>Şifre:</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="password" asp-for="Password" class="form-control" placeholder="********">
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-2">
+                                    </div>
+                                    <div class="col-1">
+                                        <label>Fotoğraf:</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="file" asp-for="Image" class="form-control" />
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row justify-content-end">
+                                    <div class="col-3">
+
+                                        <button type="submit" class="btn btn-outline-danger">Güncelle</button>
+
+                                    </div>
+                                </div>
+                                <br />
+                                <hr class="my-0" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End Hero Section -->

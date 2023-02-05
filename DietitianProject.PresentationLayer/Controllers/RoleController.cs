@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 
 namespace DietitianProject.PresentationLayer.Controllers
 {
-    [AllowAnonymous]
     public class RoleController : Controller
     {
         private readonly RoleManager<AppRole> _roleManager;

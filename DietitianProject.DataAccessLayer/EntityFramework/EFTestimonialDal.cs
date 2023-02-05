@@ -19,6 +19,7 @@ namespace DietitianProject.DataAccessLayer.EntityFramework
             {
                 var values = context.Testimonials.Find(id);
                 values.Status = false;
+                context.SaveChanges();
             }
         }
 
@@ -28,6 +29,7 @@ namespace DietitianProject.DataAccessLayer.EntityFramework
             {
                 var values = context.Testimonials.Find(id);
                 values.Status = true;
+                context.SaveChanges();
             }
         }
 

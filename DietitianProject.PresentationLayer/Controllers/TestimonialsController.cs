@@ -39,6 +39,7 @@ namespace DietitianProject.PresentationLayer.Controllers
                 _testimonialService.TInsert(testimonial);
             }
             return RedirectToAction("Index","Home", new { area = "UserArea" });
+            
         }
 
         public IActionResult ChangeTestimonialStatusToFalse(int id)
@@ -53,14 +54,10 @@ namespace DietitianProject.PresentationLayer.Controllers
          }
 
         public IActionResult Delete(int id)
-        {
-            if (id!=0)
-            {
+        { 
                 var values = _testimonialService.TGetById(id);
                 _testimonialService.TDelete(values);
-                return Json(true);
-            }
-            return Json(false);
+                return RedirectToAction("Index");  
         }
     }
 }

@@ -1,17 +1,16 @@
-﻿@model UpdateDietPlanDto
-
+﻿@model CreateDietPlanDto
 @{
-    ViewData["Title"] = "Update";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_DietitianLayout.cshtml";
 }
- 
-<main class="content">
-    <div class="container-fluid p-0">
+
+<section class="hero d-flex align-items-center section">
+    <div class="container">
         <div class="row">
             <div class="col-md-12 col-xl-12">
-                <div class="card mb-3">
+                <div  class="card flex-fill" style="border:none">
                     <div class="card-header">
-                        <h2 class="card-title mb-0">Diyet Planı Düzenle</h2>
+                        <h5 class="card-title mb-0">Yeni Diyet Planı</h5>
                     </div>
                     <hr class="my-0" />
                     <form method="post" enctype="multipart/form-data">
@@ -19,7 +18,6 @@
                             <br />
                             <div class="col-12">
                                 <div class="row">
-                                    @Html.HiddenFor(x=>x.Id)
                                     <div class="col-1">
                                         <label>Adı:</label>
                                     </div>
@@ -33,7 +31,7 @@
                                         <label>Fiyat:</label>
                                     </div>
                                     <div class="col-3">
-                                        <input type="text" asp-for="Price" class="form-control" placeholder="Fiyat...">
+                                        <input type="number" asp-for="Price" class="form-control" placeholder="Fiyat...">
                                         <span asp-validation-for="Price" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -51,12 +49,11 @@
                                 <br />
                                 <div class="row">
                                     <div class="col-1">
-                                        <label>Pdf İçeriğini değiştir:</label>
+                                        <label>Pdf İçeriği:</label>
                                     </div>
                                     <div class="col-5">
                                         <textarea class="form-control" rows="10" asp-for="Pdf" placeholder="Diyet içeriğini giriniz..."></textarea>
                                         <span asp-validation-for="Pdf" class="text-danger"></span>
-                                        <a href="/DietPlan/InstallPdf/@Model.Id">İçeriği Gör</a>
                                     </div>
 
                                     <div class="col-1">
@@ -71,7 +68,7 @@
                                 <div class="row justify-content-end">
                                     <div class="col-3">
 
-                                        <button type="submit" class="btn btn-warning">Güncelle</button>
+                                        <button type="submit" class="btn btn-success">Kaydet</button>
 
                                     </div>
                                 </div>
@@ -83,10 +80,5 @@
                 </div>
             </div>
         </div>
-
     </div>
-</main>
-
-
-
-
+</section>

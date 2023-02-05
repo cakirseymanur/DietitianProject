@@ -5,17 +5,13 @@
             <h2>Yorum</h2>
             <p>YORUMLARIN BİZİM İÇİN ÖNEMLİ! <span>YORUM YAP</span></p>
         </div>
-        <form action="/Testimonials/Create" method="post" role="form" class="php-email-form p-3 p-md-4">
+        <form action="/Testimonials/Create" method="post" role="form">
 
             <div class="form-group">
-                <textarea class="form-control" name="description" rows="5" placeholder="Yorumun..." required></textarea>
+                <textarea class="form-control" name="description" rows="15" placeholder="Yorumun..." required></textarea>
             </div>
-            <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Yorumunu dikkate alacağız. Teşekkürler!</div>
-            </div>
-            <div class="text-center"><button type="submit">Yorumu Gönder</button></div>
+            <br />
+            <div class="text-center"><button type="submit" class="btn btn-outline-danger">Yorumu Gönder</button></div>
         </form>
         <!--End Contact Form -->
 

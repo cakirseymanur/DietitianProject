@@ -1,0 +1,46 @@
+﻿@model List<DietPlan>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<section class="hero d-flex align-items-center section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-12 col-xxl-12 d-flex">
+                <div class="card flex-fill" style="border:none">
+                    <div class="card-body text-center">
+                        <p>
+                            <h5 class="card-title mb-0">Ürün Listesi</h5>
+                        </p>
+                    </div>
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>Fotoğraf</th>
+                                <th>Plan Adı</th>
+                                <th>Açıklama</th>
+                                <th>Fiyat</th>
+                                <th>İçerik</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td><img src="/Image/DietPlanImage/@item.ImageUrl" height="50" width="50" alt="@item.Name" /></td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Description</td>
+                                    <td>@item.Price</td>
+                                    <td><a href="/DietPlan/InstallPdf/@item.Id">İçeriği İndir</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <hr class="my-0" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section><!-- End Hero Section -->

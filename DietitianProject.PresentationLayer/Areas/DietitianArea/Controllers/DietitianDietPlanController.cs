@@ -11,14 +11,15 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DietitianProject.PresentationLayer.Controllers
+namespace DietitianProject.PresentationLayer.Areas.DietitianArea.Controllers
 {
-    public class DietPlanController : Controller
+    [Area("DietitianArea")]
+    public class DietitianDietPlanController : Controller
     {
         private readonly IDietPlanService _dietPlanService;
         private readonly IMapper _mapper;
 
-        public DietPlanController(IDietPlanService dietPlanService, IMapper mapper)
+        public DietitianDietPlanController(IDietPlanService dietPlanService, IMapper mapper)
         {
             _dietPlanService = dietPlanService;
             _mapper = mapper;
@@ -53,7 +54,7 @@ namespace DietitianProject.PresentationLayer.Controllers
                     await dietPlan.Image.CopyToAsync(stream);
                     diet.ImageUrl = imageName;
                 }
-                if (dietPlan.Pdf!=null)
+                if (dietPlan.Pdf != null)
                 {
                     string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/PdfReports/" + $"{dietPlan.Name}.pdf");
                     var stream = new FileStream(path, FileMode.Create);
@@ -84,7 +85,7 @@ namespace DietitianProject.PresentationLayer.Controllers
             if (ModelState.IsValid)
             {
                 var diet = _dietPlanService.TGetById(dietPlan.Id);
-                 //diet = _mapper.Map<DietPlan>(dietPlan);
+                //diet = _mapper.Map<DietPlan>(dietPlan);
                 if (dietPlan.Image != null)
                 {
                     if (diet.ImageUrl != null)
@@ -95,22 +96,22 @@ namespace DietitianProject.PresentationLayer.Controllers
                     var resource = Directory.GetCurrentDirectory();
                     var extension = Path.GetExtension(dietPlan.Image.FileName);
                     var imageName = Guid.NewGuid() + extension;
-                    
-                    var saveLocation = resource + "/wwwroot/Image/DietPlanImage/" + imageName; 
+
+                    var saveLocation = resource + "/wwwroot/Image/DietPlanImage/" + imageName;
                     var stream = new FileStream(saveLocation, FileMode.Create);
 
                     await dietPlan.Image.CopyToAsync(stream);
                     diet.ImageUrl = imageName;
                 }
                 if (dietPlan.Pdf != null)
-                { 
+                {
                     if (diet.PdfURL != null)
                     {
                         System.IO.File.Delete("wwwroot/PdfReports/" + $"{dietPlan.Name}.pdf");
                     }
                     string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/PdfReports/" + $"{dietPlan.Name}.pdf");
                     var stream = new FileStream(path, FileMode.Create);
-                    
+
                     Document document = new Document(PageSize.A4);
                     PdfWriter.GetInstance(document, stream);
                     document.Open();
@@ -126,27 +127,6 @@ namespace DietitianProject.PresentationLayer.Controllers
                 return RedirectToAction("Index");
             }
             return View(dietPlan);
-        }
-        public IActionResult Delete(int id)
-        { 
-          var values = _dietPlanService.TGetById(id);
-          _dietPlanService.TDelete(values);
-          return RedirectToAction("Index"); 
-        }
-        public IActionResult InstallPdf(int id)
-        {
-            var dietPlan = _dietPlanService.TGetById(id);
-            return File($"/PdfReports/{dietPlan.Name}.pdf", "application/pdf", $"{dietPlan.Name}.pdf");
-        }
-        public IActionResult ChangeDietPlanStatusToFalse(int id)
-        {
-            _dietPlanService.TChangeDietPlanStatusToFalse(id);
-            return RedirectToAction("Index");
-        }
-        public IActionResult ChangeDietPlanStatusToTrue(int id)
-        {
-            _dietPlanService.TChangeDietPlanStatusToTrue(id);
-            return RedirectToAction("Index");
         }
     }
 }

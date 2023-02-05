@@ -15,6 +15,7 @@ namespace DietitianProject.DataAccessLayer.Repository
             using (var context = new Context())
             {
                 context.Remove(t);
+                context.SaveChanges();
             }
         }
 
@@ -39,6 +40,7 @@ namespace DietitianProject.DataAccessLayer.Repository
             using (var context = new Context())
             {
                 context.Add(t);
+                context.SaveChanges();
             }
         }
 
@@ -47,6 +49,7 @@ namespace DietitianProject.DataAccessLayer.Repository
             using (var context = new Context())
             {
                 context.Update(t);
+                context.SaveChanges();
             }
         }
     }

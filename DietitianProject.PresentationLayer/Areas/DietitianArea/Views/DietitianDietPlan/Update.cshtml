@@ -1,17 +1,16 @@
 ﻿@model UpdateDietPlanDto
-
 @{
     ViewData["Title"] = "Update";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_DietitianLayout.cshtml";
 }
- 
-<main class="content">
-    <div class="container-fluid p-0">
+
+<section class="hero d-flex align-items-center section">
+    <div class="container">
         <div class="row">
             <div class="col-md-12 col-xl-12">
-                <div class="card mb-3">
+                <div class="card flex-fill" style="border:none">
                     <div class="card-header">
-                        <h2 class="card-title mb-0">Diyet Planı Düzenle</h2>
+                        <h5 class="card-title mb-0">Yeni Diyet Planı</h5>
                     </div>
                     <hr class="my-0" />
                     <form method="post" enctype="multipart/form-data">
@@ -19,7 +18,7 @@
                             <br />
                             <div class="col-12">
                                 <div class="row">
-                                    @Html.HiddenFor(x=>x.Id)
+                                    @Html.HiddenFor(x => x.Id)
                                     <div class="col-1">
                                         <label>Adı:</label>
                                     </div>
@@ -85,8 +84,5 @@
         </div>
 
     </div>
-</main>
-
-
-
+</section>
 

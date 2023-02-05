@@ -24,19 +24,19 @@ namespace DietitianProject.BusinessLayer.Concrete
         public void TChangeTestimonialStatusToFalse(int id)
         {
             _testimonialDal.ChangeTestimonialStatusToFalse(id);
-            _uowDal.Save();
+            //_uowDal.Save();
         }
 
         public void TChangeTestimonialStatusToTrue(int id)
         {
             _testimonialDal.ChangeTestimonialStatusToTrue(id);
-            _uowDal.Save();
+            //_uowDal.Save();
         }
 
         public void TDelete(Testimonial t)
         {
             _testimonialDal.Delete(t);
-            _uowDal.Save();
+            //_uowDal.Save();
         }
 
         public Testimonial TGetById(int id)
@@ -62,13 +62,13 @@ namespace DietitianProject.BusinessLayer.Concrete
         public void TInsert(Testimonial t)
         {
             _testimonialDal.Insert(t);
-            _uowDal.Save();
+            //_uowDal.Save();
         }
 
         public void TUpdate(Testimonial t)
         {
             _testimonialDal.Update(t);
-            _uowDal.Save();
+           // _uowDal.Save();
         }
     }
 }

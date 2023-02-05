@@ -5,6 +5,7 @@ using DietitianProject.BusinessLayer.ValidationRules.AppUserValidator;
 using DietitianProject.BusinessLayer.ValidationRules.DietPlanValidator;
 using DietitianProject.DataAccessLayer.Abstract;
 using DietitianProject.DataAccessLayer.EntityFramework;
+using DietitianProject.DataAccessLayer.UnitOfWork;
 using DietitianProject.DtoLayer.DTOs.AppRoleDTOs;
 using DietitianProject.DtoLayer.DTOs.AppUserDTOs;
 using DietitianProject.DtoLayer.DTOs.DietPlanDTOs;
@@ -23,11 +24,18 @@ namespace DietitianProject.BusinessLayer.DIContainer
     {
         public static void ConteinerDependencies(this IServiceCollection services)
         {
+            services.AddScoped<IUowDal, UowDal>();
             services.AddScoped<ITestimonialService, TestimonialManager>();
             services.AddScoped<ITestimonialDal, EFTestimonialDal>();
 
             services.AddScoped<IDietPlanService, DietPlanManager>();
             services.AddScoped<IDietPlanDal, EFDietPlanDal>();
+
+            services.AddScoped<ISalesDal, EFSalesDal>();
+            services.AddScoped<ISalesService, SalesManager>();
+
+
+            services.AddTransient<IBraintreeService, BraintreeService>();
         }
         public static void CustomizeValidator(this IServiceCollection services)
         {

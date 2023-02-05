@@ -13,7 +13,6 @@ namespace DietitianProject.PresentationLayer.Controllers
     {
 		public async Task<IActionResult> Index()
         {
-
 			return View();
 		}
 		public async Task<IActionResult> GetCalorie(string foodName)

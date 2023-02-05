@@ -1,6 +1,6 @@
 ﻿@model List<DietPlan>
 <section id="events" class="events">
-    <div class="container-fluid" data-aos="fade-up">
+    <div class="container-fluid" data-aos="fade-up section-bg">
 
         <div class="section-header">
             <h2>DİYET PLANLARI</h2>
@@ -15,7 +15,7 @@
                     <div class="swiper-slide event-item d-flex flex-column justify-content-end" @*style="background-image: url(~/DietPlanImage/@item.ImageUrl)"*@>
                         <img src="~/Image/DietPlanImage/@item.ImageUrl" alt="Alternate Text" />
                         <h3>@item.Name</h3>
-                        <div class="price align-self-start">@item.Price TL <a href="/UserArea/Sales/ComplateSale/@item.Id" class="btn-book-a-table">Satın Al</a></div>
+                        <div class="price align-self-start">@item.Price TL <a href="/UserArea/Sales/Purchase/@item.Id" class="btn-book-a-table">Satın Al</a></div>
                         <p class="description">
                             @item.Description
                         </p>
@@ -26,7 +26,7 @@
         </div>
 
     </div>
-</section> End Events Section 
+</section>  
 <!--<section id="menu" class="menu">
     <div class="container" data-aos="fade-up">
 

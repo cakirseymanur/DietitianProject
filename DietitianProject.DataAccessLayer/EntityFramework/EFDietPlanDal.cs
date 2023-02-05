@@ -18,6 +18,7 @@ namespace DietitianProject.DataAccessLayer.EntityFramework
             {
                 var values = context.DietPlans.Find(id);
                 values.Status = false;
+                context.SaveChanges();
             }
         }
 
@@ -27,6 +28,7 @@ namespace DietitianProject.DataAccessLayer.EntityFramework
             {
                 var values = context.DietPlans.Find(id);
                 values.Status = true;
+                context.SaveChanges();
             }
         }
         public List<DietPlan> GetByStatus(bool status)
