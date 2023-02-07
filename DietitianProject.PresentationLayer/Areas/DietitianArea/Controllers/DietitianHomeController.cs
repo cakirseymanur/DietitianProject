@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 namespace DietitianProject.PresentationLayer.Areas.DietitianArea.Controllers
 {
     [Area("DietitianArea")]
-    public class HomeController : Controller
+    public class DietitianHomeController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
 
-        public HomeController(UserManager<AppUser> userManager)
+        public DietitianHomeController(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
         }

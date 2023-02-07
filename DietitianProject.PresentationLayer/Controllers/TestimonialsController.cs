@@ -38,7 +38,7 @@ namespace DietitianProject.PresentationLayer.Controllers
                 };
                 _testimonialService.TInsert(testimonial);
             }
-            return RedirectToAction("Index","Home", new { area = "UserArea" });
+            return RedirectToAction("Index", "UserHome", new { area = "UserArea" });
             
         }
 

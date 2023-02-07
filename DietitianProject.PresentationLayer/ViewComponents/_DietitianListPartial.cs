@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace DietitianProject.PresentationLayer.ViewComponents
 {
-    public class _DietitianInfoesPartial : ViewComponent
+    public class _DietitianListPartial : ViewComponent
     {
         private readonly UserManager<AppUser> _userManager;
 
-        public _DietitianInfoesPartial(UserManager<AppUser> userManager)
+        public _DietitianListPartial(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
         }
-
+        
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var result = await _userManager.GetUsersInRoleAsync("Diyetisyen");

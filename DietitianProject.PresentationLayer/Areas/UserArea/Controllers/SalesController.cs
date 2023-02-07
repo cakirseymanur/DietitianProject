@@ -16,7 +16,6 @@ namespace DietitianProject.PresentationLayer.Areas.UserArea.Controllers
     public class SalesController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
-        private readonly Context  _context;
         private readonly IDietPlanService _dietPlanService;
         private readonly ISalesService _salesService;
         private readonly IBraintreeService _braintreeService;
@@ -44,7 +43,7 @@ namespace DietitianProject.PresentationLayer.Areas.UserArea.Controllers
            
             _salesService.TInsert(sale);
 
-            return RedirectToAction("Index", "Home", new { area = "UserArea"});
+            return RedirectToAction("Index", "UserHome", new { area = "UserArea"});
         }
         //[HttpPost]
         //public async Task<IActionResult> ComplateSale(int id)

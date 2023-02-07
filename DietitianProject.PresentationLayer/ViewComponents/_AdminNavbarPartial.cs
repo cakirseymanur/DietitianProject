@@ -6,22 +6,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DietitianProject.PresentationLayer.Areas.UserArea.Controllers
+namespace DietitianProject.PresentationLayer.ViewComponents
 {
-    [Area("UserArea")]
-    public class HomeController : Controller
+    public class _AdminNavbarPartial:ViewComponent
     {
         private readonly UserManager<AppUser> _userManager;
 
-        public HomeController(UserManager<AppUser> userManager)
+        public _AdminNavbarPartial(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            ViewBag.User = await _userManager.FindByNameAsync(User.Identity.Name);
-            return View();
+            var result = await _userManager.FindByNameAsync(User.Identity.Name);
+            return View(result);
         }
     }
 }

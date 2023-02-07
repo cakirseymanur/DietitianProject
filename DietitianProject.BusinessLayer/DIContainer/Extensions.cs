@@ -34,6 +34,9 @@ namespace DietitianProject.BusinessLayer.DIContainer
             services.AddScoped<ISalesDal, EFSalesDal>();
             services.AddScoped<ISalesService, SalesManager>();
 
+            services.AddScoped<IEventDal, EFEventDal>();
+            services.AddScoped<IEventService, EventManager>();
+
 
             services.AddTransient<IBraintreeService, BraintreeService>();
         }

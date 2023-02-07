@@ -45,11 +45,11 @@ namespace DietitianProject.PresentationLayer.Controllers
                     {
                         return RedirectToAction("Index", "Admin");
                     }
-                    else if (role.Contains("Dietitian"))
+                    else if (role.Contains("Diyetisyen"))
                     {
-                        return RedirectToAction("Index", "Dietitian");
+                        return RedirectToAction("Index", "DietitianHome", new { area = "DietitianArea" });
                     }
-                    return RedirectToAction("Index", "User");
+                    return RedirectToAction("Index", "UserHome", new { area = "UserArea" });
                 }
                 else
                 {
@@ -58,6 +58,10 @@ namespace DietitianProject.PresentationLayer.Controllers
             }
             return View();
         }
-        
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

@@ -1,0 +1,34 @@
+﻿@model List<AppUser>
+
+<div class="row">
+    <div class="col-12 col-lg-12 col-xxl-12 d-flex">
+        <div class="card flex-fill">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Diyetisyen Listesi</h5>
+            </div>
+            <table class="table table-hover my-0">
+                <thead>
+                    <tr>
+                        <th>Fotoğraf</th>
+                        <th>Ad Soyad</th>
+                        <th>Email</th>
+                        <th>Kullanıcı Adı</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><img src="~/Image/UserImage/@item.ImageURL" width="50" height="70" alt="@item.Name @item.Surname" /></td>
+                            <td>@item.Name @item.Surname</td>
+                            <td>@item.Email</td>
+                            <td>@item.UserName</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
