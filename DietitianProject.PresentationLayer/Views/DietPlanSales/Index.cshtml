@@ -17,8 +17,8 @@
                     <table class="table table-hover my-0">
                         <thead>
                             <tr>
-                                <th>Kullanıcı Id</th>
-                                <th>Plan Id</th>
+                                <th>Kullanıcı</th>
+                                <th>Plan</th>
                                 <th>Satış Tarihi</th>
                                 <th>Fiyat</th>
                             </tr>
@@ -28,8 +28,8 @@
                             {
                                 <tr>
                                    
-                                    <td>@item.AppUserId</td>
-                                    <td>@item.DietPlanId</td>
+                                    <td>@item.AppUser.Name @item.AppUser.Surname</td>
+                                    <td>@item.DietPlan.Name</td>
                                     <td>@item.SalesDate</td>
                                     <td>@item.Price</td>
                                 </tr>

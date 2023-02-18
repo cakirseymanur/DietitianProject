@@ -220,10 +220,10 @@ namespace DietitianProject.DataAccessLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AppUserId")
+                    b.Property<int?>("AppUserId")
                         .HasColumnType("int");
 
-                    b.Property<int>("DietPlanId")
+                    b.Property<int?>("DietPlanId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
@@ -233,6 +233,10 @@ namespace DietitianProject.DataAccessLayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("DietPlanId");
 
                     b.ToTable("Sales");
                 });
@@ -373,6 +377,21 @@ namespace DietitianProject.DataAccessLayer.Migrations
                         .IsRequired();
 
                     b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("DietitianProject.EntityLayer.Concrete.Sale", b =>
+                {
+                    b.HasOne("DietitianProject.EntityLayer.Concrete.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("DietitianProject.EntityLayer.Concrete.DietPlan", "DietPlan")
+                        .WithMany()
+                        .HasForeignKey("DietPlanId");
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("DietPlan");
                 });
 
             modelBuilder.Entity("DietitianProject.EntityLayer.Concrete.Testimonial", b =>

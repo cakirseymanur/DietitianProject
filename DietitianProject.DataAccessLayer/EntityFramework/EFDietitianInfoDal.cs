@@ -10,7 +10,10 @@ using System.Threading.Tasks;
 
 namespace DietitianProject.DataAccessLayer.EntityFramework
 {
-    public class EFDietitianInfoDal:GenericRepository<DietitianInfo>, IDietitianInfoDal
+    public class EFDietitianInfoDal : GenericRepository<DietitianInfo>, IDietitianInfoDal
     {
+        public EFDietitianInfoDal(Context context) : base(context)
+        {
+        }
     }
 }

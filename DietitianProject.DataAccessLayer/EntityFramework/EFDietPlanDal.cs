@@ -12,6 +12,10 @@ namespace DietitianProject.DataAccessLayer.EntityFramework
 {
     public class EFDietPlanDal : GenericRepository<DietPlan>, IDietPlanDal
     {
+        public EFDietPlanDal(Context context) : base(context)
+        {
+        }
+
         public void ChangeDietPlanStatusToFalse(int id)
         {
             using (var context = new Context())

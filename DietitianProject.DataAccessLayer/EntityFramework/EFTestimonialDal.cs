@@ -13,6 +13,10 @@ namespace DietitianProject.DataAccessLayer.EntityFramework
 {
     public class EFTestimonialDal : GenericRepository<Testimonial>, ITestimonialDal
     {
+        public EFTestimonialDal(Context context) : base(context)
+        {
+        }
+
         public void ChangeTestimonialStatusToFalse(int id)
         {
             using (var context = new Context())

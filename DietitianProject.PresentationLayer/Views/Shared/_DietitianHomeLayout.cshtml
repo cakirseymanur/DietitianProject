@@ -96,7 +96,7 @@
 
         @await Component.InvokeAsync("_DietitianInfoesPartial")
 
-        
+
         <!-- ======= Contact Section ======= -->
         <!-- End Contact Section -->
 
@@ -118,7 +118,21 @@
 
     <!-- Template Main JS File -->
     <script src="~/Templates/Yummy/assets/js/main.js"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
 
+    <script type="text/javascript">
+        /* $(document).ready(() => {*/
+        var connection = new signalR.HubConnectionBuilder().withAutomaticReconnect().withUrl("https://localhost:44397/ClientHub").build();
+        connection.start().then(function () {
+            console.log(connection.connectionState)
+        }).catch(function (err) {
+            console.log("Hata" + err)
+        });
+            //connection.on("ReceiveClientCount", (count) => {
+            //    console.log(count)
+            //    document.getElementById("clientCount").innerHTML = count;
+            //})
+    </script>
 </body>
 
 </html>

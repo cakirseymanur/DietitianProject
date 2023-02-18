@@ -9,6 +9,7 @@ namespace DietitianProject.DataAccessLayer.Abstract
 {
     public interface ISalesDal:IGenericDal<Sale>
     {
-        List<DietPlan> GetMyDietPlans(int id);
+        List<Sale> GetMyDietPlans(int id);
+        List<Sale> GetAllSaleInfo();
     }
 }

@@ -23,20 +23,18 @@ namespace DietitianProject.BusinessLayer.Concrete
 
         public void TChangeDietPlanStatusToFalse(int id)
         {
-            _dietPlanDal.ChangeDietPlanStatusToFalse(id);
-            //_uowDal.Save();
+            _dietPlanDal.ChangeDietPlanStatusToFalse(id); 
         }
 
         public void TChangeDietPlanStatusToTrue(int id)
         {
-            _dietPlanDal.ChangeDietPlanStatusToTrue(id);
-            //_uowDal.Save();
+            _dietPlanDal.ChangeDietPlanStatusToTrue(id); 
         }
 
         public void TDelete(DietPlan t)
         {
             _dietPlanDal.Delete(t);
-            //_uowDal.Save();
+            _uowDal.Save();
         }
 
         public DietPlan TGetById(int id)
@@ -57,13 +55,13 @@ namespace DietitianProject.BusinessLayer.Concrete
         public void TInsert(DietPlan t)
         {
             _dietPlanDal.Insert(t);
-            //_uowDal.Save();
+            _uowDal.Save();
         }
 
         public void TUpdate(DietPlan t)
         {
             _dietPlanDal.Update(t);
-            //_uowDal.Save();
+            _uowDal.Save();
         }
     }
 }

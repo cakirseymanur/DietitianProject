@@ -1,4 +1,4 @@
-﻿@model List<DietPlan>
+﻿@model List<Sale>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -28,11 +28,11 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td><img src="/Image/DietPlanImage/@item.ImageUrl" height="50" width="50" alt="@item.Name" /></td>
-                                    <td>@item.Name</td>
-                                    <td>@item.Description</td>
-                                    <td>@item.Price</td>
-                                    <td><a href="/DietPlan/InstallPdf/@item.Id">İçeriği İndir</a></td>
+                                    <td><img src="/Image/DietPlanImage/@item.DietPlan.ImageUrl" height="50" width="50" alt="@item.DietPlan.Name" /></td>
+                                    <td>@item.DietPlan.Name</td>
+                                    <td>@item.DietPlan.Description</td>
+                                    <td>@item.DietPlan.Price</td>
+                                    <td><a href="/DietPlan/InstallPdf/@item.DietPlan.Id">İçeriği İndir</a></td>
                                 </tr>
                             }
                         </tbody>
@@ -43,4 +43,4 @@
         </div>
 
     </div>
-</section><!-- End Hero Section -->
+</section> End Hero Section 

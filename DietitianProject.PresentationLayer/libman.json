@@ -5,6 +5,11 @@
     {
       "library": "twitter-bootstrap@5.2.3",
       "destination": "wwwroot/twitter-bootstrap/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "@microsoft/signalr@5.0.17",
+      "destination": "wwwroot/microsoft/signalr/"
     }
   ]
 }

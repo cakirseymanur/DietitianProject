@@ -9,6 +9,7 @@ namespace DietitianProject.BusinessLayer.Abstract
 {
     public interface ISalesService :IGenericService<Sale>
     {
-        List<DietPlan> TGetMyDietPlans(int id);
+        List<Sale> TGetMyDietPlans(int id);
+        List<Sale> TGetAllSaleInfo();
     }
 }
