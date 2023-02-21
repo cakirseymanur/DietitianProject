@@ -1,0 +1,68 @@
+﻿@model CreateDietContentDto
+@{
+    ViewData["Title"] = "CreateDietContent";
+    Layout = "~/Views/Shared/_DietitianLayout.cshtml";
+}
+
+<section class="hero d-flex align-items-center section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xl-12">
+                <div class="card flex-fill" style="border:none">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Yeni İçerik</h5>
+                    </div>
+                    <hr class="my-0" />
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <br />
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <label>Başlık:</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" asp-for="Subject" class="form-control" placeholder="Başlık ...">
+                                        <span asp-validation-for="Subject" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <div class="row">
+                                    <div class="col-1">
+                                        <label>İçerik:</label>
+                                    </div>
+                                    <div class="col-7">
+                                        <textarea class="form-control" rows="5" asp-for="Content" placeholder="İçerik..."></textarea>
+                                        <span asp-validation-for="Content" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row"> 
+                                    <div class="col-1">
+                                        <label>Fotoğraf:</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="file" asp-for="Image" class="form-control" />
+                                        <span asp-validation-for="Image" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row justify-content-end">
+                                    <div class="col-3">
+
+                                        <button type="submit" class="btn btn-success">Kaydet</button>
+
+                                    </div>
+                                </div>
+                                <br />
+                                <hr class="my-0" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

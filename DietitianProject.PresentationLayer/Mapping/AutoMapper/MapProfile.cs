@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DietitianProject.DtoLayer.DTOs.AppRoleDTOs;
 using DietitianProject.DtoLayer.DTOs.AppUserDTOs;
+using DietitianProject.DtoLayer.DTOs.DietContentDTOs;
 using DietitianProject.DtoLayer.DTOs.DietPlanDTOs;
 using DietitianProject.EntityLayer.Concrete;
 using System;
@@ -28,6 +29,10 @@ namespace DietitianProject.PresentationLayer.Mapping.AutoMapper
             /////////DietPlan/////////////////
             CreateMap<CreateDietPlanDto, DietPlan>().ReverseMap();
             CreateMap<UpdateDietPlanDto, DietPlan>().ForMember(dto=>dto.ImageUrl,plan=>plan.Ignore()).ForMember(dto=>dto.CreatedDate,plan=>plan.Ignore()).ReverseMap();
+
+            /////////DietContent/////////////////
+            CreateMap<CreateDietContentDto, DietContent>().ReverseMap();
+            CreateMap<UpdateDietContentDto, DietContent>().ForMember(dto => dto.ImageUrl, plan => plan.Ignore()).ForMember(dto => dto.CreatedDate, plan => plan.Ignore()).ReverseMap();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model List<DietPlan>
+﻿@model List<GetAllDietContentQueryResult>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -20,10 +20,7 @@
                         <thead>
                             <tr>
                                 <th>Fotoğraf</th>
-                                <th>Plan Adı</th>
-                                <th>Açıklama</th>
-                                <th>Fiyat</th>
-                                <th>Pdf</th>
+                                <th>Başlık</th> 
                                 <th>Oluşturma tarihi</th>
                                 <th>Güncelle</th>
                                 <th>Durumu</th>
@@ -34,22 +31,19 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td><img src="/Image/DietPlanImage/@item.ImageUrl" height="50" width="50" alt="@item.Name" /></td>
-                                    <td>@item.Name</td>
-                                    <td>@item.Description</td>
-                                    <td>@item.Price</td>
-                                    <td>@item.PdfURL</td>
+                                    <td><img src="/Image/DietContentImage/@item.ImageUrl" height="50" width="50" alt="@item.Subject" /></td>
+                                    <td>@item.Subject</td> 
                                     <td>@Convert.ToDateTime(item.CreatedDate).ToShortDateString()</td>
-                                    <td><a href="/DietPlan/Update/@item.Id" class="btn btn-warning">Güncelle</a></td>
+                                    <td><a href="/DietContent/Update/@item.Id" class="btn btn-warning">Güncelle</a></td>
                                     @if (item.Status == true)
                                     {
-                                        <td><a href="/DietPlan/ChangeDietPlanStatusToFalse/@item.Id" class="btn btn-info">Yayından Kaldır</a></td>
+                                        <td><a href="/DietContent/ChangeDietContentStatusToFalse/@item.Id" class="btn btn-info">Yayından Kaldır</a></td>
                                     }
                                     else
                                     {
-                                        <td><a href="/DietPlan/ChangeDietPlanStatusToTrue/@item.Id" class="btn btn-success">Yayınla</a></td>
+                                        <td><a href="/DietContent/ChangeDietContentStatusToTrue/@item.Id" class="btn btn-success">Yayınla</a></td>
                                     }
-                                    <td><a href="/DietPlan/Delete/@item.Id" class="btn btn-danger">Sil</a></td>
+                                    <td><a href="/DietContent/Delete/@item.Id" class="btn btn-danger">Sil</a></td>
                                 </tr>
                             }
                         </tbody>
@@ -61,4 +55,6 @@
 
     </div>
 </main>
+
+
 

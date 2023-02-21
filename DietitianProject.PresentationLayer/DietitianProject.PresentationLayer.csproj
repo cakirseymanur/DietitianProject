@@ -51,6 +51,7 @@
     <Folder Include="Areas\UserArea\Data\" />
     <Folder Include="Areas\UserArea\Models\" />
     <Folder Include="wwwroot\Image\DietPlanImage\" />
+    <Folder Include="wwwroot\Image\DietContentImage\" />
     <Folder Include="wwwroot\Image\UserImage\" />
     <Folder Include="wwwroot\PdfReports\" />
   </ItemGroup>

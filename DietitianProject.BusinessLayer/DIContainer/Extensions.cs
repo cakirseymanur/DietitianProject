@@ -1,13 +1,16 @@
 ﻿using DietitianProject.BusinessLayer.Abstract;
 using DietitianProject.BusinessLayer.Concrete;
+using DietitianProject.BusinessLayer.CQRS.Handlers.DietContentHandlers;
 using DietitianProject.BusinessLayer.ValidationRules.AppRoleValidator;
 using DietitianProject.BusinessLayer.ValidationRules.AppUserValidator;
+using DietitianProject.BusinessLayer.ValidationRules.DietContentValidator;
 using DietitianProject.BusinessLayer.ValidationRules.DietPlanValidator;
 using DietitianProject.DataAccessLayer.Abstract;
 using DietitianProject.DataAccessLayer.EntityFramework;
 using DietitianProject.DataAccessLayer.UnitOfWork;
 using DietitianProject.DtoLayer.DTOs.AppRoleDTOs;
 using DietitianProject.DtoLayer.DTOs.AppUserDTOs;
+using DietitianProject.DtoLayer.DTOs.DietContentDTOs;
 using DietitianProject.DtoLayer.DTOs.DietPlanDTOs;
 using DietitianProject.EntityLayer.Concrete;
 using FluentValidation;
@@ -37,7 +40,9 @@ namespace DietitianProject.BusinessLayer.DIContainer
             services.AddScoped<IEventDal, EFEventDal>();
             services.AddScoped<IEventService, EventManager>();
 
-
+            services.AddScoped<IDietContentDal, EFDietContentDal>();
+            services.AddScoped<IDietContentService, DietContentManager>();
+             
             services.AddTransient<IBraintreeService, BraintreeService>();
         }
         public static void CustomizeValidator(this IServiceCollection services)
@@ -55,6 +60,9 @@ namespace DietitianProject.BusinessLayer.DIContainer
 
             services.AddTransient<IValidator<CreateDietPlanDto>, CreateDietPlanValidator>();
             services.AddTransient<IValidator<UpdateDietPlanDto>, UpdateDietPlanValidator>();
+
+            services.AddTransient<IValidator<CreateDietContentDto>, CreateDietContentValidator>();
+            services.AddTransient<IValidator<UpdateDietContentDto>, UpdateDietContentValidator>();
         }
     }
 }

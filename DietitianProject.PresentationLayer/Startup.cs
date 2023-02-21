@@ -1,7 +1,9 @@
+using DietitianProject.BusinessLayer.CQRS.Handlers.DietContentHandlers;
 using DietitianProject.BusinessLayer.DIContainer;
 using DietitianProject.DataAccessLayer.Concrete;
 using DietitianProject.EntityLayer.Concrete;
 using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,13 +35,12 @@ namespace DietitianProject.PresentationLayer
             services.ConteinerDependencies();
 
             services.AddDbContext<Context>();
+            services.AddMediatR(typeof(GetAllDietContentQueryHandler).Assembly);
             services.AddIdentity<AppUser, AppRole>(config =>
             {
                 config.SignIn.RequireConfirmedEmail = true;
                 config.SignIn.RequireConfirmedAccount = true;
             }).AddEntityFrameworkStores<Context>().AddTokenProvider<DataProtectorTokenProvider<AppUser>>(TokenOptions.DefaultProvider);
-
-
 
             services.CustomizeValidator();
 
