@@ -12,10 +12,10 @@
                 <div class="card flex-fill">
                     <div class="card-header">
 
-                        <h5 class="card-title mb-0">Ürün Listesi</h5>
+                        <h5 class="card-title mb-0">İçerik Listesi</h5>
                     </div>
                     <hr class="my-0" />
-                    <a href="/DietPlan/Create" class="btn btn-success">Diyet Planı Oluştur</a>
+                    <a href="/DietContent/Create" class="btn btn-success">İçerik Oluştur</a>
                     <table class="table table-hover my-0">
                         <thead>
                             <tr>
@@ -32,7 +32,7 @@
                             {
                                 <tr>
                                     <td><img src="/Image/DietContentImage/@item.ImageUrl" height="50" width="50" alt="@item.Subject" /></td>
-                                    <td>@item.Subject</td> 
+                                    <td>@item.Subject</td>
                                     <td>@Convert.ToDateTime(item.CreatedDate).ToShortDateString()</td>
                                     <td><a href="/DietContent/Update/@item.Id" class="btn btn-warning">Güncelle</a></td>
                                     @if (item.Status == true)

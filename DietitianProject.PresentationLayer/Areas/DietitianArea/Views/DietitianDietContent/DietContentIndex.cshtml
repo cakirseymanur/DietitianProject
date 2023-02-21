@@ -1,0 +1,34 @@
+﻿@model List<DietContent>
+@{
+    ViewData["Title"] = "DietContentIndex";
+    Layout = "~/Views/Shared/_DietitianLayout.cshtml";
+}
+
+<section class="hero d-flex align-items-center section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-12 col-xxl-12 d-flex">
+                <div class="card flex-fill" style="border:none">
+                    <div class="card-header">
+
+                        <h5 class="card-title mb-0">İçerikler</h5>
+                    </div> 
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                        <div class="col-lg-4 justify-content-center align-content-center">
+                            <img src="~/Image/DietContentImage/@item.ImageUrl" height="200" width="200" alt="">
+                            <h4>@item.Subject</h4>
+                            <p class="ingredients">
+                                @item.CreatedDate
+                            </p>
+                            <a href="/DietitianArea/DietitianDietContent/Content/@item.Id" class="book-a-table"><strong>Oku</strong></a>
+                            <hr class="my-0" />
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

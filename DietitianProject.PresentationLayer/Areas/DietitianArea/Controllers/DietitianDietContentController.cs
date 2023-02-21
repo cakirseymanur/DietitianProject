@@ -26,9 +26,10 @@ namespace DietitianProject.PresentationLayer.Areas.DietitianArea.Controllers
             _userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-          var dietContents=  _dietContentService.TGetList();
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var dietContents=  _dietContentService.TGetList().Where(x=>x.AppUserId==user.Id).ToList();
             return View(dietContents);
         }
         [HttpGet]
@@ -98,5 +99,17 @@ namespace DietitianProject.PresentationLayer.Areas.DietitianArea.Controllers
             }
             return View(model);
         }
+        #region DietitianDietContent
+        public IActionResult DietContentIndex()
+        {
+            var dietContents = _dietContentService.TGetByStatus(true);
+            return View(dietContents);
+        }
+        public IActionResult Content(int id)
+        {
+            var dietContents = _dietContentService.TGetById(id);
+            return View(dietContents);
+        }
+        #endregion
     }
 }

@@ -9,5 +9,9 @@ namespace DietitianProject.BusinessLayer.Abstract
 {
     public interface IDietContentService:IGenericService<DietContent>
     {
+        List<DietContent> TGetByStatus(bool status);
+        List<DietContent> TGetListWithUser();
+        void TChangeDietContentStatusToTrue(int id);
+        void TChangeDietContentStatusToFalse(int id);
     }
 }

@@ -1,0 +1,71 @@
+﻿@model UpdateDietContentDto
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main class="content">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-md-12 col-xl-12">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h2 class="card-title mb-0">İçerik Düzenle</h2>
+                    </div>
+                    <hr class="my-0" />
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <br />
+                            <div class="col-12">
+                                <div class="row">
+                                    @Html.HiddenFor(x => x.Id)
+                                    <div class="col-1">
+                                        <label>Başlık:</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" asp-for="Subject" class="form-control" placeholder="Başlık ...">
+                                        <span asp-validation-for="Subject" class="text-danger"></span>
+                                    </div>
+                                     
+                                </div>
+
+                                <br />
+                                <div class="row">
+                                    <div class="col-1">
+                                        <label>İçerik:</label>
+                                    </div>
+                                    <div class="col-5">
+                                        <textarea class="form-control" rows="5" asp-for="Content" placeholder="İçerik..."></textarea>
+                                        <span asp-validation-for="Content" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row"> 
+                                    <div class="col-1">
+                                        <label>Fotoğraf:</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="file" asp-for="Image" class="form-control" />
+                                        <span asp-validation-for="Image" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row justify-content-end">
+                                    <div class="col-3">
+
+                                        <button type="submit" class="btn btn-warning">Güncelle</button>
+
+                                    </div>
+                                </div>
+                                <br />
+                                <hr class="my-0" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+

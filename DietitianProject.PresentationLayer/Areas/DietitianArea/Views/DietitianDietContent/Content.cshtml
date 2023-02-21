@@ -1,0 +1,38 @@
+﻿@model DietContent
+@{
+    ViewData["Title"] = "Content";
+    Layout = "~/Views/Shared/_DietitianLayout.cshtml";
+}
+
+<section class="hero d-flex align-items-center section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-12 col-xxl-12 d-flex">
+                <div class="card flex-fill" style="border:none">
+                     
+                    <div class="section-header">
+                        <p><span>@Model.Subject</span></p>
+                    </div>
+
+                    <div class="row gy-4">
+                        <div class="col-lg-5 position-relative about-img" data-aos="fade-up" data-aos-delay="150">
+                            <img src="~/Image/DietContentImage/@Model.ImageUrl" class="img-fluid" alt="">
+                        </div>
+                        <div class="col-lg-7 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
+                            <div class="content ps-0 ps-lg-5">
+                                <p class="fst-italic">
+                                    @Model.Content
+                                </p>
+                                <p class="ingredients">
+                                    @Model.CreatedDate
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
